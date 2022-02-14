@@ -39,11 +39,11 @@ function buscar_juegos($chatId){
     $array=json_decode($json,TRUE);
     
     for ($i=0; $i < 20; $i++) { 
-        $response=$response."\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link'];
+        $response=$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link'];
         sendMessage($chatId, $response);
     }
 
-    //sendMessage($chatId, $response);
+    
 
 }
 
