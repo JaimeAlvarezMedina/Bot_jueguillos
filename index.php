@@ -34,7 +34,7 @@ function sendMessage($chatId, $response) {
 function getNoticias($chatId){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
-    $url = "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada"; 
+    $url = "https://www.metacritic.com/rss/games/pc"; 
   
     $xmlstring = file_get_contents($url, false, $context); 
   
