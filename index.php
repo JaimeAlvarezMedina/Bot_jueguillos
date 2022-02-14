@@ -10,11 +10,11 @@ $message = $update['message']['text'];
  
 switch($message) { 
     case '/start': 
-        $response = 'Me has iniciado'; 
+        $response = 'Iniciando...'; 
         sendMessage($chatId, $response); 
         break; 
-    case '/noticias': 
-            getNoticias($chatId); 
+    case '/juegos': 
+        coger_juegos($chatId); 
         break; 
     case '/info': 
         $response = 'Hola! Soy @ruben'; 
@@ -31,10 +31,10 @@ function sendMessage($chatId, $response) {
     file_get_contents($url); 
 } 
  
-function getNoticias($chatId){   
+function coger_juegos($chatId){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
-    $url = "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada"; 
+    $url = "https://www.metacritic.com/rss/games/pc"; 
   
     $xmlstring = file_get_contents($url, false, $context); 
   
