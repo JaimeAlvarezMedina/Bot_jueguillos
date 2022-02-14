@@ -15,7 +15,6 @@ switch($message) {
         break;
     case '/juegos':
         buscar_juegos($chatId);
-        $response = 'puto';
         break;
         
         
