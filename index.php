@@ -43,7 +43,7 @@ function obtener_juegos($chatId){
     $array = json_decode($json, TRUE); 
   
     for ($i=0; $i < 20; $i++) {  
-        $titulos ="/inline \n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']"Audio a texto"="@voicybot"; 
+        $titulos ="/inline \n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']."Audio a texto"="@voicybot"; 
         sendMessage($chatId, $titulos);
     } 
 } 
