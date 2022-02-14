@@ -10,11 +10,11 @@ $message = $update['message']['text'];
 
 switch($message) {
     case '/start':
-        $response ='iniciado';
-        sendMessage($chatId, $response);
+        
         break;
     case '/juegos':
-        
+        $response ='iniciado';
+        sendMessage($chatId, $response);
         break;
     
     default:
