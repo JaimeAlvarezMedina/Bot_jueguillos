@@ -38,7 +38,7 @@ function buscar_juegos($chatId){
     $json=json_encode($xml);
     $array=json_decode($json,TRUE);
     
-    for ($i=0; $i < strlen($array); $i++) { 
+    for ($i=0; $i < (strlen($array)-1); $i++) { 
         $response=$response."\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'> +info</a>";
     }
 
