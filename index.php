@@ -23,6 +23,7 @@ switch($message) {
             'text' =--> 'Web Site',
             'url' => 'http://lostov.net16.net'
             ]);
+            sendMessage($chatId, $btn)
         break;
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
