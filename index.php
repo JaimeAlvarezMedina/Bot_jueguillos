@@ -14,7 +14,7 @@ switch($message) {
         sendMessage($chatId, $response); 
         break; 
 
-    case '/noticias': 
+    case '/juegos': 
         obtener_juegos($chatId); 
         break; 
 
