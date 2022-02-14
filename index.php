@@ -14,7 +14,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/juegos':
-        buscar_juegos($chatId);
+        
         break;
     
     default:
