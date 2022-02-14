@@ -43,7 +43,7 @@ function buscar_juegos($chatId){
         $response=$response."\n\n".$array['channel']['item'][$i]['title']."<a href='".$link."'> +info</a>";
     }
 
-    sendMessage($chatId, $response);
+    sendMessage($chatId, $link);
 
 }
 
