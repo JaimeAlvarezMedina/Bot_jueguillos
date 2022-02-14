@@ -13,15 +13,15 @@ switch($message) {
         $response = 'Iniciando...'; 
         sendMessage($chatId, $response); 
         break; 
+
     case '/noticias': 
-            getNoticias($chatId); 
+        obtener_juegos($chatId); 
         break; 
-    case '/info': 
-        $response = 'Hola! Soy @ruben'; 
-        sendMessage($chatId, $response); 
-        break; 
+
+    
+
     default: 
-        $response = 'No te he entendido'; 
+        $response = 'Aprende los comandos, no hay easter-egg'; 
         sendMessage($chatId, $response); 
         break; 
 } 
@@ -31,7 +31,7 @@ function sendMessage($chatId, $response) {
     file_get_contents($url); 
 } 
  
-function getNoticias($chatId){   
+function obtener_juegos($chatId){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
     $url = "https://www.metacritic.com/rss/games/pc.xml"; 
@@ -43,12 +43,9 @@ function getNoticias($chatId){
     $array = json_decode($json, TRUE); 
   
     for ($i=0; $i < 20; $i++) {  
-        $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
+        $titulos ="/inline \n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']"Audio a texto"="@voicybot"; 
         sendMessage($chatId, $titulos);
     } 
-  
-     
- 
 } 
  
  
