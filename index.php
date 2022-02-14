@@ -30,7 +30,7 @@ function sendMessage($chatId, $response) {
 
 function buscar_juegos($chatId){
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml')));
-    $enlace="https://www.metacritic.com/rss/games/pc";
+    $enlace="https://zara2.webnode.es/rss/all.xml";
 
     $xmlstring = file_get_contents($enlace,false,$context);
 
