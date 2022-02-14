@@ -13,12 +13,11 @@ switch($message) {
         $response ='iniciado';
         sendMessage($chatId, $response);
         break;
-    case '/cosa':
-        switch($num){
-            case 1:
-                $response = 'puto';
-                break;
-        }
+    case '/juegos':
+        buscar_juegos($chatId);
+        $response = 'puto';
+        break;
+        
         
         sendMessage($chatId, $response);
         break;
@@ -33,4 +32,23 @@ function sendMessage($chatId, $response) {
     $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response);
     file_get_contents($url);
 }
+
+function buscar_juegos($chatId){
+    $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml')));
+    $url="https://www.metacritic.com/rss/games/pc";
+
+    $xmlstring = file_get_contents($url,false,$context);
+
+    $xml= simplexml_load_string($xmlstring, "SimpleXMLElement",LIBXML_NOCDATA);
+    $json=json_encode($xml);
+    $array=json_decode($json,TRUE);
+
+    foreach($array as $juego){
+        $titulo=$titulo."\n\n".$array['channel']['item'][$juego]['title']."<a href='"$array['channel']['item'][$juego]['link']."'>+info</a>";
+    }
+
+    sendMessage($chatId, $titulo);
+
+}
+
 ?>
