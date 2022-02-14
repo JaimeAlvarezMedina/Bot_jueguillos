@@ -39,11 +39,10 @@ function buscar_juegos($chatId){
     $array=json_decode($json,TRUE);
     
     for ($i=0; $i < 9; $i++) { 
-        $link="<h1>".$array['channel']['item'][$i]['link']."'</h1>";
-        $response=$response."\n\n".$array['channel']['item'][$i]['title']."<a href='".$link."'> +info</a>";
+        $titulos = $titulos."\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'> +info</a>";
     }
 
-    sendMessage($chatId, $link);
+    sendMessage($chatId, $titulos);
 
 }
 
