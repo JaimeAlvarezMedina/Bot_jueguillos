@@ -16,10 +16,6 @@ switch($message) {
     case '/juegos':
         buscar_juegos($chatId);
         break;
-        
-        
-        sendMessage($chatId, $response);
-        break;
     
     default:
         $response = 'Introduce uno de los comandos, no intentes explorar';
