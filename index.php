@@ -14,11 +14,9 @@ switch($message) {
         sendMessage($chatId, $response); 
         break; 
 
-    case '/noticias': 
+    case '/juegos': 
         obtener_juegos($chatId); 
         break; 
-
-    
 
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
@@ -34,7 +32,7 @@ function sendMessage($chatId, $response) {
 function obtener_juegos($chatId){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
-    $url = "https://www.metacritic.com/rss/games/pc.xml"; 
+    $url = "https://www.metacritic.com/rss/games/pc"; 
   
     $xmlstring = file_get_contents($url, false, $context); 
   
