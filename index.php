@@ -13,8 +13,8 @@ switch($message) {
         $response = 'Iniciando...'; 
         sendMessage($chatId, $response); 
         break; 
-    case '/juegos': 
-        coger_juegos($chatId); 
+    case '/noticias': 
+            getNoticias($chatId); 
         break; 
     case '/info': 
         $response = 'Hola! Soy @ruben'; 
@@ -31,7 +31,7 @@ function sendMessage($chatId, $response) {
     file_get_contents($url); 
 } 
  
-function coger_juegos($chatId){   
+function getNoticias($chatId){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
     $url = "https://www.metacritic.com/rss/games/pc"; 
