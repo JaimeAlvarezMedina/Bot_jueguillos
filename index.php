@@ -18,6 +18,12 @@ switch($message) {
         obtener_juegos($chatId); 
         break; 
 
+    case '/boton':
+        $btn = new InlineKeyboardButton([
+            'text' =--> 'Web Site',
+            'url' => 'http://lostov.net16.net'
+            ]);
+        break;
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
         sendMessage($chatId, $response); 
