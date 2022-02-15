@@ -13,7 +13,7 @@ $reply=$update["message"]["reply_to_message"]["text"];
 switch($message) { 
     case '/start': 
         $response = 'Iniciando...'; 
-        sendMessage($chatId, $response); 
+        sendMessage($chatId, $response,TRUE); 
         break; 
 
     case '/juegos': 
@@ -51,7 +51,7 @@ function obtener_juegos($chatId){
   
     for ($i=0; $i < 20; $i++) {  
         $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
-        sendMessage($chatId, $titulos,TRUE);
+        sendMessage($chatId, $titulos);
     } 
 } 
  
