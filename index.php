@@ -22,7 +22,7 @@ switch($message) {
 
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
-        sendMessage($chatId, $response); 
+        sendMessage($chatId, $response,false); 
         break; 
 } 
  
@@ -33,7 +33,6 @@ function sendMessage($chatId, $response, $repl) {
     } 
     else{
         $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response); 
-        file_get_contents($url); 
     }
         
 } 
@@ -51,7 +50,7 @@ function obtener_juegos($chatId){
   
     for ($i=0; $i < 20; $i++) {  
         $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
-        sendMessage($chatId, $titulos);
+        sendMessage($chatId, $titulos,false);
     } 
 } 
  
