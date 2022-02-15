@@ -7,7 +7,7 @@ $update = json_decode($input, TRUE);
  
 $chatId = $update['message']['chat']['id']; 
 $message = $update['message']['text']; 
-$repl=$update['message']['reply_to_message']['text']; 
+$reply=$update['message']['reply_to_message']['text']; 
 
  
 switch($message) { 
@@ -26,16 +26,16 @@ switch($message) {
         break; 
 } 
  
-function sendMessage($chatId, $response,$repl) { 
-    if($repl==TRUE){
-        $reply_mark=array('force_reply'=>True);
+function sendMessage($chatId, $response, $repl) { 
+    if($repl==TRUE){ 
+        $reply_mark=array('force_reply'=>True); 
         $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($reply_mark).'&text='.urlencode($response); 
-    }
+    } 
     else{
         $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response); 
-        file_get_contents($url);
+        file_get_contents($url); 
     }
-     
+        
 } 
  
 function obtener_juegos($chatId){   
