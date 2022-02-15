@@ -13,7 +13,7 @@ $reply=$update["message"]["reply_to_message"]["text"];
 switch($message) { 
     case '/start': 
         $response = 'Iniciando...'; 
-        sendMessage($chatId, $response,True); 
+        sendMessage($chatId, $response); 
         break; 
 
     case '/juegos': 
