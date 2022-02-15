@@ -26,7 +26,7 @@ switch($message) {
         break; 
 } 
  
-function sendMessage($chatId, $response) { 
+function sendMessage($chatId, $response,$repl) { 
     if($repl==TRUE){
         $reply_mark=array('force_reply'=>True);
         $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($reply_mark).'&text='.urlencode($response); 
