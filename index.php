@@ -7,6 +7,8 @@ $update = json_decode($input, TRUE);
  
 $chatId = $update['message']['chat']['id']; 
 $message = $update['message']['text']; 
+$reply=$update["message"]["reply_to_message"]["text"];
+
  
 switch($message) { 
     case '/start': 
@@ -17,7 +19,7 @@ switch($message) {
     case '/juegos': 
         obtener_juegos($chatId); 
         break; 
-        
+
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
         sendMessage($chatId, $response); 
@@ -25,8 +27,15 @@ switch($message) {
 } 
  
 function sendMessage($chatId, $response) { 
-    $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response); 
-    file_get_contents($url); 
+    if($repl==TRUE){
+        $reply_mark=array('force_reply'=>True);
+        $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($reply_mark).'&text='.urlencode($response); 
+    }
+    else{
+        $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response); 
+        file_get_contents($url);
+    }
+     
 } 
  
 function obtener_juegos($chatId){   
@@ -42,7 +51,7 @@ function obtener_juegos($chatId){
   
     for ($i=0; $i < 20; $i++) {  
         $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
-        sendMessage($chatId, $titulos);
+        sendMessage($chatId, $titulos,TRUE);
     } 
 } 
  
