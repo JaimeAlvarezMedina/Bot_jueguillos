@@ -20,7 +20,22 @@ if(empty($reply)){
         $response='¿De que plataforma quieres las criticas?';
         sendMessage($chatId, $response,True); 
         break; 
-
+    case 't':
+        if($text == "t"){
+            $keyboard = array(
+                "inline_keyboard" => array(
+                    array(
+                        array(
+                            "text" => "My Button Text", 
+                            "callback_data" => "myCallbackData"
+                        )
+                    )
+                )
+            );
+        
+            keyboard($chatId, "asadsd", $keyboard);
+        }
+        break;
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
         sendMessage($chatId, $response); 
@@ -53,7 +68,18 @@ function obtener_juegos($chatId){
         $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
         sendMessage($chatId, $titulos,True);
     } 
-} 
+}
+
+function keyboard($chatID, $text, $t)
+{
+    $args = array(
+        "chat_id" => $chatID,
+        "text" => $text,
+        "parse_mode" => "HTML",
+        "reply_markup" => json_encode($t),
+    );
+    api("sendMessage?".http_build_query($args));        
+}
  
  
 ?>
