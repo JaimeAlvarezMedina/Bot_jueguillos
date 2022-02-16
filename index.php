@@ -62,7 +62,7 @@ function obtener_juegos($chatId){
   
     for ($i=0; $i < 20; $i++) {  
         $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
-        sendMessage($chatId, $titulos);
+        sendMessage($chatId, $titulos,false);
     } 
 } 
  
