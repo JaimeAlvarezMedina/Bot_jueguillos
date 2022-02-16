@@ -9,7 +9,7 @@ $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text']; 
 $reply=$update['message']['reply_to_message']['text']; 
 
-if(empty($reply){
+if(empty($reply)){
     switch($message) { 
     case '/start': 
         $response = 'Iniciando...'; 
