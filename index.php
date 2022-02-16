@@ -29,13 +29,13 @@ if(empty($reply)){
     } 
 } 
 else{
-    if($reply[0]=="¿De"){
+    
         switch($message){
             case "pc":
                 obtener_juegos($chatId);
                 break; 
         }
-    }
+    
     
 }
 
