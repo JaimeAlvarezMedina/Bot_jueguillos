@@ -9,15 +9,16 @@ $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text']; 
 $reply=$update['message']['reply_to_message']['text']; 
 
- 
-switch($message) { 
+if(empty($reply){
+    switch($message) { 
     case '/start': 
         $response = 'Iniciando...'; 
-        sendMessage($chatId, $response,True); 
+        sendMessage($chatId, $response); 
         break; 
 
     case '/juegos': 
-        obtener_juegos($chatId); 
+        $response='¿De que plataforma quieres las criticas?';
+        sendMessage($chatId, $response,True); 
         break; 
 
     default: 
@@ -25,6 +26,8 @@ switch($message) {
         sendMessage($chatId, $response); 
         break; 
 } 
+} 
+
  
 function sendMessage($chatId, $response, $repl) { 
     if($repl==TRUE){ 
