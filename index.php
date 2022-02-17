@@ -78,10 +78,6 @@ else{
             case "ps vita":
                 obtener_juegos($chatId,12);
                 break; 
-            case "/help":
-                $response="Las plataformas son:  PC  PS3  WII U  XBOX 360   3DS   PSP  DS  IOS  WII  PS4   XBOX ONE   PS VITA"
-                sendMessage($chatId, $response, TRUE); 
-                break;
                 
             default:
                 $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
