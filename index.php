@@ -10,7 +10,7 @@ $message = $update['message']['text'];
 $reply=$update['message']['reply_to_message']['text']; 
 $replay=explode(" ",$reply);
 
-if(!$reply){
+if(empty($reply)){
     switch($message) { 
     case '/start': 
         $response = 'Iniciando...'; 
