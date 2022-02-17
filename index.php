@@ -29,7 +29,7 @@ if(empty($reply)){
     } 
 } 
 else{
-    strtolower($message);
+    $message=strtolower($message);
         switch($message){
             case "pc":
                 obtener_juegos($chatId,1);
