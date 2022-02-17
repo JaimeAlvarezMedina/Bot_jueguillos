@@ -33,6 +33,7 @@ else{
         switch($message){
             case "pc":
                 obtener_juegos($chatId);
+                unset($reply);
                 break; 
         }
     
