@@ -80,10 +80,11 @@ else{
                 break; 
             case "/help":
                 $response="Las plataformas son: \n\n PC \n\n PS3 \n\n WII U \n\n XBOX 360  \n\n 3DS  \n\n PSP \n\n DS \n\n IOS \n\n WII \n\n PS4  \n\n XBOX ONE  \n\n PS VITA"
+                sendMessage($chatId, $response, TRUE); 
                 break;
                 
             default:
-                $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
+                $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escribe /help'; 
                 sendMessage($chatId, $response, TRUE); 
                 break;
         }
