@@ -29,19 +29,17 @@ if(empty($reply)){
     } 
 } 
 else{
+    strtolower($message);
         switch($message){
             case "pc":
                 obtener_juegos($chatId,1);
                 break;
-            
             case "ps3":
                 obtener_juegos($chatId,2);
                 break;
-            
             case "wii u":
                 obtener_juegos($chatId,3);
                 break;
-                
             case "xbox 360":
                 obtener_juegos($chatId,4);
                 break;
@@ -129,7 +127,6 @@ function obtener_juegos($chatId, $plataforma){
         case 12:
             $url = "https://www.metacritic.com/rss/games/vita";
             break;
-            
     }
     
   
