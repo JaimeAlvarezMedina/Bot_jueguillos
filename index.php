@@ -19,17 +19,7 @@ if(empty($reply)){
 
     case '/juegos': 
         
-        $keyboard = array('keyboard' =>
-            array(array(
-                array('text'=>'pc','callback_data'=>"1"),
-                array('text'=>'ps3','callback_data'=>"2")
-            ),
-                array(
-                    array('text'=>'help','callback_data'=>"4")
-                )), 'one_time_keyboard' => false, 'resize_keyboard' => true
-        );
-file_get_contents('https://api.telegram.org/bot5118834329:AAGxvrMT7Yv-Bc2TeaNV4O31ajptfOKVh7I/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Cargando...');
-        
+        keyboard($chatId);
         break; 
 
     default: 
@@ -152,5 +142,12 @@ function obtener_juegos($chatId, $plataforma){
     } 
 } 
  
+
+function keyboard ($chatId){
+
+    $keyboard = array('keyboard' => array(array(array('text' => 'Ayuda'), array('text' => 'Noticias'), array('text' => 'Tiempo'), array('text' => 'Telefonos'), array('text' => 'Comercios'))),'one_time_keyboard' => false,'resize_keyboard' => true);
+    file_get_contents($GLOBALS[path].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text='.urlencode("...."));
+
+}
  
 ?>
