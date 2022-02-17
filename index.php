@@ -21,7 +21,7 @@ if(empty($reply)){
         
         $keyboard = array('keyboard' =>
             array(array(
-                array('text'=>'text1','callback_data'=>"1"),
+                array('PC'=>'pc','callback_data'=>"1"),
                 array('text'=>'text2','callback_data'=>"2")
             ),
                 array(
