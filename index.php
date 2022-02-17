@@ -25,7 +25,7 @@ if(empty($reply)){
                 array('text'=>'ps3','callback_data'=>"2")
             ),
                 array(
-                    array('text'=>'start','callback_data'=>"4")
+                    array('text'=>'puta','callback_data'=>"4")
                 )), 'one_time_keyboard' => false, 'resize_keyboard' => true
         );
 file_get_contents('https://api.telegram.org/bot5118834329:AAGxvrMT7Yv-Bc2TeaNV4O31ajptfOKVh7I/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Cargando...');
