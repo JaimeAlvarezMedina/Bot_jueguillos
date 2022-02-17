@@ -31,7 +31,7 @@ if(empty($reply)){
 else{
     
         switch($message){
-            case "pc":
+            case "/juegos":
                 obtener_juegos($chatId);
                 break; 
         }
