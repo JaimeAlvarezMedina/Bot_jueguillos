@@ -32,9 +32,17 @@ else{
     
         switch($message){
             case "pc":
-                obtener_juegos($chatId);
+                obtener_juegos($chatId,1);
                 
-                break; 
+                break;
+            case "pc":
+                obtener_juegos($chatId,2);
+                break;
+                
+            default:
+                $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
+                sendMessage($chatId, $response, FALSE); 
+                break;
         }
     
     
@@ -50,10 +58,18 @@ function sendMessage($chatId, $response, $repl) {
     file_get_contents($url); 
 } 
  
-function obtener_juegos($chatId){   
+function obtener_juegos($chatId, $plataforma){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
-    $url = "https://www.metacritic.com/rss/games/pc"; 
+    switch($plataforma){
+        case 1:
+            $url = "https://www.metacritic.com/rss/games/pc"; 
+            break;
+        case 2:
+            $url = "https://www.metacritic.com/rss/games/ps3";
+            break;
+    }
+    
   
     $xmlstring = file_get_contents($url, false, $context); 
   
