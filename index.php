@@ -22,7 +22,7 @@ if(empty($reply)){
         $keyboard = array('keyboard' =>
             array(array(
                 array('PC'=>'pc','callback_data'=>"1"),
-                array('text'=>'text2','callback_data'=>"2")
+                array('PS3'=>'ps3','callback_data'=>"2")
             ),
                 array(
                     array('text'=>'start','callback_data'=>"4")
