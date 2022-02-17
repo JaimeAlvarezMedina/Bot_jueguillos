@@ -19,7 +19,7 @@ if(empty($reply)){
             ),
                 array(
                     array('text'=>'/easter egg','callback_data'=>"4")
-                )), 'one_time_keyboard' => false, 'resize_keyboard' => true
+                )), 'one_time_keyboard' => true, 'resize_keyboard' => true
         );
         file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
          
