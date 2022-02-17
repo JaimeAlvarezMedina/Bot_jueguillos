@@ -13,26 +13,26 @@ $replay=explode(" ",$reply);
 if(empty($reply)){
     switch($message) { 
     case '/start': 
-        $response = 'Iniciando...'; 
-        sendMessage($chatId, $response, FALSE); 
-        break; 
-
-    case '/juegos': 
-        $response='¿De que plataforma quieres las criticas?';
-        sendMessage($chatId, $response,TRUE);
         $keyboard = array('keyboard' =>
             array(array(
-                array('text'=>'PC','callback_data'=>"1"),
-                array('text'=>'PS3','callback_data'=>"2")
+                array('text'=>'/juegos','callback_data'=>"1"),
             ),
                 array(
-                    array('text'=>'/help','callback_data'=>"4")
+                    array('text'=>'/easter egg','callback_data'=>"4")
                 )), 'one_time_keyboard' => false, 'resize_keyboard' => true
         );
         file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Cargando...');
          
         break; 
 
+    case '/juegos': 
+        $response='¿De que plataforma quieres las criticas?';
+        sendMessage($chatId, $response,TRUE); 
+        break;
+    case '/easter egg':
+        $response='Que no hay nada curiosona';
+        sendMessage($chatId, $response,false); 
+        break;
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
         sendMessage($chatId, $response, FALSE); 
