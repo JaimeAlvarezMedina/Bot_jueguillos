@@ -18,9 +18,19 @@ if(empty($reply)){
         break; 
 
     case '/juegos': 
-        $response="¿De que plataforma quieres las criticas?";
-        keyboard($chatId);
-        
+        $response='¿De que plataforma quieres las criticas?';
+        sendMessage($chatId, $response,TRUE);
+        $keyboard = array('keyboard' =>
+            array(array(
+                array('text'=>'PC','callback_data'=>"1"),
+                array('text'=>'PS3','callback_data'=>"2")
+            ),
+                array(
+                    array('text'=>'/help','callback_data'=>"4")
+                )), 'one_time_keyboard' => false, 'resize_keyboard' => true
+        );
+        file_get_contents('https://api.telegram.org/bot5118834329:AAGxvrMT7Yv-Bc2TeaNV4O31ajptfOKVh7I/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Cargando...');
+         
         break; 
 
     default: 
@@ -143,12 +153,5 @@ function obtener_juegos($chatId, $plataforma){
     } 
 } 
  
-
-function keyboard ($chatId){
-
-    $keyboard = array('keyboard' => array(array(array('text' => 'PC'), array('text' => 'PS3'), array('text' => 'WII U'), array('text' => 'XBOX 360'), array('text' => '3DS'), array('text' => 'PSP'), array('text' => 'DS'), array('text' => 'IOS'), array('text' => 'WII'), array('text' => 'PS4'), array('text' => 'XBOX ONE'), array('text' => 'PS VITA'))),'one_time_keyboard' => false,'resize_keyboard' => true);
-    file_get_contents($GLOBALS[path].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text='.urlencode("...."));
-
-}
  
 ?>
