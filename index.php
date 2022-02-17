@@ -35,7 +35,7 @@ else{
                 obtener_juegos($chatId,1);
                 
                 break;
-            case "pc":
+            case "ps3":
                 obtener_juegos($chatId,2);
                 break;
                 
