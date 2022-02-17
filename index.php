@@ -21,7 +21,7 @@ if(empty($reply)){
                     array('text'=>'/easter egg','callback_data'=>"4")
                 )), 'one_time_keyboard' => false, 'resize_keyboard' => true
         );
-        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea');
+        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
          
         break; 
 
@@ -81,7 +81,7 @@ else{
                 
             default:
                 $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
-                sendMessage($chatId, $response, FALSE); 
+                sendMessage($chatId, $response, TRUE); 
                 break;
         }
     
