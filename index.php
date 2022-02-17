@@ -61,7 +61,7 @@ function obtener_juegos($chatId){
     $json = json_encode($xml); 
     $array = json_decode($json, TRUE); 
   
-    for ($i=0; $i < 20; $i++) {  
+    for ($i=0; $i < 10; $i++) {  
         $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
         sendMessage($chatId, $titulos,false);
     } 
