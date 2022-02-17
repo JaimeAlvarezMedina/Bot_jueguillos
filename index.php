@@ -9,11 +9,7 @@ $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text']; 
 $reply=$update['message']['reply_to_message']['text']; 
 $replay=explode(" ",$reply);
-
-if(empty($reply)){
-    switch($message) { 
-    case '/start': 
-        $keyboard = array('keyboard' =>
+$keyboard = array('keyboard' =>
             array(array(
                 array('text'=>'/juegos','callback_data'=>"1"),
             ),
@@ -23,6 +19,10 @@ if(empty($reply)){
         );
         file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
          
+if(empty($reply)){
+    switch($message) { 
+    case '/start': 
+        
         break; 
 
     case '/juegos': 
