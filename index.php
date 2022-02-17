@@ -38,6 +38,9 @@ else{
             case "ps3":
                 obtener_juegos($chatId,2);
                 break;
+            case "wii u":
+                obtener_juegos($chatId,3);
+                break;
                 
             default:
                 $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
@@ -67,6 +70,9 @@ function obtener_juegos($chatId, $plataforma){
             break;
         case 2:
             $url = "https://www.metacritic.com/rss/games/ps3";
+            break;
+        case 3:
+            $url = "https://www.metacritic.com/rss/games/wii-u";
             break;
     }
     
