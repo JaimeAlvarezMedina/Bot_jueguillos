@@ -79,7 +79,7 @@ else{
                 obtener_juegos($chatId,12);
                 break; 
             case "/help":
-                $response="Las plataformas son: \n\n PC \n\n PS3 \n\n WII U \n\n XBOX 360  \n\n 3DS  \n\n PSP \n\n DS \n\n IOS \n\n WII \n\n PS4  \n\n XBOX ONE  \n\n PS VITA"
+                $response="Las plataformas son:  PC  PS3  WII U  XBOX 360   3DS   PSP  DS  IOS  WII  PS4   XBOX ONE   PS VITA"
                 sendMessage($chatId, $response, TRUE); 
                 break;
                 
