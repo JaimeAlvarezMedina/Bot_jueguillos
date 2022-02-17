@@ -14,17 +14,17 @@ if(empty($reply)){
     switch($message) { 
     case '/start': 
         $response = 'Iniciando...'; 
-        sendMessage($chatId, $response); 
+        sendMessage($chatId, $response, FALSE); 
         break; 
 
     case '/juegos': 
         $response='¿De que plataforma quieres las criticas?';
-        sendMessage($chatId, $response,True); 
+        sendMessage($chatId, $response,TRUE); 
         break; 
 
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
-        sendMessage($chatId, $response); 
+        sendMessage($chatId, $response, FALSE); 
         break; 
     } 
 } 
