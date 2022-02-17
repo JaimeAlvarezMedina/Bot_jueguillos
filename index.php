@@ -18,10 +18,10 @@ if(empty($reply)){
                 array('text'=>'/juegos','callback_data'=>"1"),
             ),
                 array(
-                    array('text'=>'/easter_egg','callback_data'=>"4")
+                    array('text'=>'/easter egg','callback_data'=>"4")
                 )), 'one_time_keyboard' => false, 'resize_keyboard' => true
         );
-        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
+        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea');
          
         break; 
 
@@ -29,7 +29,7 @@ if(empty($reply)){
         $response='¿De que plataforma quieres las criticas?';
         sendMessage($chatId, $response,TRUE); 
         break;
-    case '/easter_egg':
+    case '/easter egg':
         $response='Que no hay nada curiosona';
         sendMessage($chatId, $response,false); 
         break;
@@ -78,14 +78,10 @@ else{
             case "ps vita":
                 obtener_juegos($chatId,12);
                 break; 
-            case "/help":
-                $response="Las plataformas son: \n\n PC \n\n PS3 \n\n WII U \n\n XBOX 360  \n\n 3DS  \n\n PSP \n\n DS \n\n IOS \n\n WII \n\n PS4  \n\n XBOX ONE  \n\n PS VITA"
-                sendMessage($chatId, $response, TRUE); 
-                break;
                 
             default:
-                $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escribe /help'; 
-                sendMessage($chatId, $response, TRUE); 
+                $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
+                sendMessage($chatId, $response, FALSE); 
                 break;
         }
     
