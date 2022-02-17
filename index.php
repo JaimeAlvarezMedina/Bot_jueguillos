@@ -29,18 +29,46 @@ if(empty($reply)){
     } 
 } 
 else{
-    
         switch($message){
             case "pc":
                 obtener_juegos($chatId,1);
-                
                 break;
+            
             case "ps3":
                 obtener_juegos($chatId,2);
                 break;
+            
             case "wii u":
                 obtener_juegos($chatId,3);
                 break;
+                
+            case "xbox 360":
+                obtener_juegos($chatId,4);
+                break;
+            case "3ds":
+                obtener_juegos($chatId,5);
+                break; 
+            case "psp":
+                obtener_juegos($chatId,6);
+                break; 
+            case "ds":
+                obtener_juegos($chatId,7);
+                break;   
+            case "ios":
+                obtener_juegos($chatId,8);
+                break;   
+            case "wii":
+                obtener_juegos($chatId,9);
+                break; 
+            case "ps4":
+                obtener_juegos($chatId,10);
+                break; 
+            case "xbox one":
+                obtener_juegos($chatId,11);
+                break; 
+            case "ps vita":
+                obtener_juegos($chatId,12);
+                break; 
                 
             default:
                 $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
@@ -74,6 +102,34 @@ function obtener_juegos($chatId, $plataforma){
         case 3:
             $url = "https://www.metacritic.com/rss/games/wii-u";
             break;
+        case 4:
+            $url = "https://www.metacritic.com/rss/games/xbox360";
+            break;
+        case 5:
+            $url = "https://www.metacritic.com/rss/games/3ds";
+            break;
+        case 6:
+            $url = "https://www.metacritic.com/rss/games/psp";
+            break;
+        case 7:
+            $url = "https://www.metacritic.com/rss/games/ds";
+            break;
+        case 8:
+            $url = "https://www.metacritic.com/rss/games/ios";
+            break;
+        case 9:
+            $url = "https://www.metacritic.com/rss/games/wii";
+            break;
+        case 10:
+            $url = "https://www.metacritic.com/rss/games/ps4";
+            break;
+        case 11:
+            $url = "https://www.metacritic.com/rss/games/xboxone";
+            break;
+        case 12:
+            $url = "https://www.metacritic.com/rss/games/vita";
+            break;
+            
     }
     
   
