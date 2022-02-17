@@ -18,8 +18,8 @@ if(empty($reply)){
         break; 
 
     case '/juegos': 
-        
-        keyboard($chatId);
+        $response='¿De que plataforma quieres las criticas?';
+        sendMessage($chatId, $response,TRUE); 
         break; 
 
     default: 
@@ -142,12 +142,5 @@ function obtener_juegos($chatId, $plataforma){
     } 
 } 
  
-
-function keyboard ($chatId){
-
-    $keyboard = array('keyboard' => array(array(array('text' => 'Ayuda'), array('text' => 'Noticias'), array('text' => 'Tiempo'), array('text' => 'Telefonos'), array('text' => 'Comercios'))),'one_time_keyboard' => false,'resize_keyboard' => true);
-    file_get_contents($GLOBALS[path].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text='.urlencode("...."));
-
-}
  
 ?>
