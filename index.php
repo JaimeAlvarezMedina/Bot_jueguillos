@@ -18,7 +18,16 @@ $replay=explode(" ",$reply);
 if(empty($reply)){
     switch($message) { 
     case '/start': 
-        
+        $keyboard = array('keyboard' =>
+            array(array(
+                array('text'=>'/juegos','callback_data'=>"1"),
+            ),
+                array(
+                    array('text'=>'/easter egg','callback_data'=>"4")
+                )), 'one_time_keyboard' => false, 'resize_keyboard' => true
+        );
+        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
+
         break; 
 
     case '/juegos': 
@@ -150,15 +159,6 @@ function obtener_juegos($chatId, $plataforma){
 } 
 
 
-    $keyboard = array('keyboard' =>
-            array(array(
-                array('text'=>'/juegos','callback_data'=>"1"),
-            ),
-                array(
-                    array('text'=>'/easter egg','callback_data'=>"4")
-                )), 'one_time_keyboard' => false, 'resize_keyboard' => true
-        );
-        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
-
+    
 
 ?>
