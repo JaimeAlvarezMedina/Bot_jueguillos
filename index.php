@@ -10,17 +10,13 @@ $message = $update['message']['text'];
 $reply=$update['message']['reply_to_message']['text']; 
 $replay=explode(" ",$reply);
 
-
-
- 
-
-
 if(empty($reply)){
     switch($message) { 
     case '/start': 
         $keyboard = array('keyboard' =>
             array(array(
                 array('text'=>'/juegos','callback_data'=>"1"),
+                array('text'=>'/help','callback_data'=>"2"),
             ),
                 array(
                     array('text'=>'/easter egg','callback_data'=>"4")
