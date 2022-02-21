@@ -38,6 +38,10 @@ if(empty($reply)){
         $response='Que no hay nada curiosona';
         sendMessage($chatId, $response,false); 
         break;
+    case '/help':
+        $response='Plataformas: \n\n PC';
+        sendMessage($chatId, $response,false); 
+        break;
     default: 
         $response = 'Aprende los comandos, no hay easter-egg'; 
         sendMessage($chatId, $response, FALSE); 
