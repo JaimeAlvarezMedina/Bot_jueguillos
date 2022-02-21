@@ -38,7 +38,7 @@ if(empty($reply)){
         sendMessage($chatId, $response,false); 
         break;
     case '/help':
-        $response='Plataformas:'."\n".' PC'."\n"."PS3"."\n"."WII U"."\n"."XBOX 360"."\n"."3DS"."\n"."PSP"."\n"."DS"."\n"."IOS"."\n"."WII"."\n"."PS4"."\n"."XBOX ONE"."\n"."PS VITA";
+        $response='Plataformas:'."\n".'PC'."\n"."PS3"."\n"."WII U"."\n"."XBOX 360"."\n"."3DS"."\n"."PSP"."\n"."DS"."\n"."IOS"."\n"."WII"."\n"."PS4"."\n"."XBOX ONE"."\n"."PS VITA";
         sendMessage($chatId, $response,false); 
         break;
     default: 
