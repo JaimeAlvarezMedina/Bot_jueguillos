@@ -16,7 +16,6 @@ if(empty($reply)){
         $keyboard = array('keyboard' =>
             array(array(
                 array('text'=>'/juegos','callback_data'=>"1"),
-                array('text'=>'/help','callback_data'=>"2"),
             ),
                 array(
                     array('text'=>'/easter egg','callback_data'=>"4")
