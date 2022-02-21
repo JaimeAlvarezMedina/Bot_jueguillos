@@ -9,20 +9,15 @@ $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text']; 
 $reply=$update['message']['reply_to_message']['text']; 
 $replay=explode(" ",$reply);
-$keyboard = array('keyboard' =>
-            array(array(
-                array('text'=>'/juegos','callback_data'=>"1"),
-            ),
-                array(
-                    array('text'=>'/easter egg','callback_data'=>"4")
-                )), 'one_time_keyboard' => true, 'resize_keyboard' => true
-        );
-        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard).'&text=Elija que desea hacer');
-         
+
+teclado();
+
 if(empty($reply)){
     switch($message) { 
     case '/start': 
-        
+        $response='¿Qué desea hacer?';
+        sendMessage($chatId, $response,TRUE); 
+         
         break; 
 
     case '/juegos': 
@@ -152,6 +147,16 @@ function obtener_juegos($chatId, $plataforma){
         sendMessage($chatId, $titulos,false);
     } 
 } 
- 
+    teclado(){
+        $keyboard = array('keyboard' =>
+        array(array(
+            array('text'=>'/juegos','callback_data'=>"1"),
+        ),
+            array(
+                array('text'=>'/easter egg','callback_data'=>"4")
+            )), 'one_time_keyboard' => false, 'resize_keyboard' => true
+        );
+        file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard));
+        }
  
 ?>
