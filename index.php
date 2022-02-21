@@ -13,7 +13,7 @@ $replay=explode(" ",$reply);
 if(empty($reply)){
     switch($message) { 
     case '/start': 
-        $keyboard = array('keyboard' =>
+        $keyboard = array('keyboard' =>//El teclado
             array(array(
                 array('text'=>'/juegos','callback_data'=>"1"),
             ),
@@ -93,7 +93,7 @@ else{
 
  
 function sendMessage($chatId, $response, $repl) { 
-    if($repl==TRUE){ 
+    if($repl==TRUE){ //Para forzar la respuesta
         $reply_mark=array('force_reply'=>True); 
         $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($reply_mark).'&text='.urlencode($response); 
     } 
@@ -104,7 +104,7 @@ function sendMessage($chatId, $response, $repl) {
 function obtener_juegos($chatId, $plataforma){   
   
     $context = stream_context_create(array('http' =>  array('header' => 'Accept: application/xml'))); 
-    switch($plataforma){
+    switch($plataforma){//Para seleccionar las distintas url
         case 1:
             $url = "https://www.metacritic.com/rss/games/pc"; 
             break;
@@ -150,8 +150,8 @@ function obtener_juegos($chatId, $plataforma){
     $json = json_encode($xml); 
     $array = json_decode($json, TRUE); 
   
-    for ($i=0; $i < 10; $i++) {  
-        $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; 
+    for ($i=0; $i < 10; $i++) {  //Recorremos todo el array
+        $titulos ="\n\n".$array['channel']['item'][$i]['title'].$array['channel']['item'][$i]['link']; //Seleccionamos la noticia que es 
         sendMessage($chatId, $titulos,false);
     } 
 } 
