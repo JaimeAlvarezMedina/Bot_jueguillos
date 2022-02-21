@@ -27,7 +27,6 @@ if(empty($reply)){
                 )), 'one_time_keyboard' => false, 'resize_keyboard' => true
         );
         file_get_contents('https://api.telegram.org/bot5157086336:AAGTbyTWlsvjqYuY1cTKkYAhzGEq11EQsIk/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($keyboard));
-
         break; 
 
     case '/juegos': 
@@ -39,7 +38,7 @@ if(empty($reply)){
         sendMessage($chatId, $response,false); 
         break;
     case '/help':
-        $response='Plataformas:'.'\n\n'.' PC';
+        $response='Plataformas:'."\n\n".' PC';
         sendMessage($chatId, $response,false); 
         break;
     default: 
