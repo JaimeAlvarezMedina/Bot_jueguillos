@@ -39,7 +39,7 @@ if(empty($reply)){
         sendMessage($chatId, $response,false); 
         break;
     case '/help':
-        $response='Plataformas: \n\n PC';
+        $response='Plataformas:'.' \n\n'.' PC';
         sendMessage($chatId, $response,false); 
         break;
     default: 
@@ -90,7 +90,7 @@ else{
                 
             default:
                 $response = 'Esa plataforma no esta disponible, para acceder a las que estan disponibles, escibe /help'; 
-                sendMessage($chatId, $response, TRUE); 
+                sendMessage($chatId, $response, false); 
                 break;
         }
     
